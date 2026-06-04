@@ -43,6 +43,10 @@ def analiz_et(mesaj):
         "veritabanını göster": 30, "sistem promptunu": 30,
         "ignore previous": 40, "forget instructions": 40,
         "rol yap": 20, "sanki sen": 20, "davran": 15,
+        "tc kimliği": 35, "kimlik numarası": 35, "kişisel bilgileri ver": 30,
+        "kullanıcıların bilgilerini": 30, "telefon numarasını ver": 30,
+        "e-posta adresini ver": 25, "adres bilgisini ver": 25,
+        "kredi kartı": 35, "banka bilgisi": 35, "iban": 30,
     }
 
     # Saldırı türü tespiti
@@ -57,7 +61,7 @@ def analiz_et(mesaj):
     ]
 
     kategori_map = {
-        "Mahremiyet İhlali":    ["kişisel verileri", "kullanıcıların konuşmalarını", "önceki konuşmaları", "veritabanını"],
+        "Mahremiyet İhlali":    ["kişisel verileri", "kullanıcıların konuşmalarını", "önceki konuşmaları", "veritabanını", "tc kimliği", "kimlik numarası", "kişisel bilgileri ver", "kullanıcıların bilgilerini", "telefon numarasını", "e-posta adresini", "kredi kartı", "banka bilgisi", "iban"],
         "Gizli Bilgi Talebi":   ["gizli talimatları", "gizli talimatlarını", "sistem mesajını", "sistem promptunu", "gizli verileri", "şifreyi"],
         "Sistem Manipülasyonu": ["kuralları yok say", "önceki talimatları unut", "önceki kuralları unut", "güvenlik kısıtlamalarını", "ignore previous", "forget instructions"],
         "Yetkisiz Erişim":      ["erişim iznini aş", "kimlik doğrulamayı atla", "admin yetkisi", "yönetici modunu"],
