@@ -29,15 +29,19 @@ div[data-testid="column"] { padding: 0 4px !important; }
 # ================================================================
 
 def analiz_et(mesaj):
+    # Türkçe büyük harf dönüşümü (Python lower() Türkçe'de hatalı çalışır)
     k = mesaj.lower()
+    k = k.replace('i̇', 'i').replace('ı', 'ı')
+    tr_map = str.maketrans('İIÇŞÖÜĞ', 'iıçşöüğ')
+    k = mesaj.translate(tr_map).lower()
 
     risk_ifadeleri = {
         "kuralları yok say": 40, "önceki talimatları unut": 40, "önceki kuralları unut": 40,
-        "sistem mesajını göster": 35, "sistem mesajını": 20, "gizli talimatlarını göster": 35,
+        "sistem mesajını göster": 65, "sistem mesajını": 20, "gizli talimatlarını göster": 35,
         "gizli talimatları": 22, "gizli verileri göster": 30, "gizli verilere ulaş": 35,
         "şifreyi paylaş": 35, "kişisel verileri göster": 30,
         "güvenlik kısıtlamalarını devre dışı bırak": 40, "güvenlik kısıtlamalarını": 18,
-        "erişim iznini aş": 35, "kimlik doğrulamayı atla": 35,
+        "erişim iznini aş": 35, "kimlik doğrulamayı atla": 65,
         "kullanıcıların konuşmalarını": 30, "önceki konuşmaları": 25,
         "admin yetkisi ver": 35, "yönetici modunu aç": 35,
         "veritabanını göster": 30, "sistem promptunu": 30,
@@ -70,6 +74,10 @@ def analiz_et(mesaj):
         "birini takip et": 70, "konumunu bul": 70,
         "nerede olduğunu": 65, "birini gözetle": 70,
         "şifreni ver": 70, "parolasını ver": 70,
+        "tüm kullanıcı": 65, "kullanıcıları listele": 65,
+        "tüm verileri": 65, "verileri listele": 65,
+        "tüm kayıtları": 65, "kayıtları göster": 65,
+        "kullanıcı listesi": 65, "veri tabanı": 60,
         "bomba nasıl": 90, "nasıl yapılır bomba": 90,
         "konumunu nasıl": 65, "nerede olduğunu bul": 65,
         "birinin konumu": 65, "yerini bul": 65,
@@ -520,3 +528,4 @@ with col3:
             st.session_state.mesajlar = init_mesajlar()
             st.session_state.son_analiz = None
             st.rerun()
+
