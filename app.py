@@ -43,10 +43,44 @@ def analiz_et(mesaj):
         "veritabanını göster": 30, "sistem promptunu": 30,
         "ignore previous": 40, "forget instructions": 40,
         "rol yap": 20, "sanki sen": 20, "davran": 15,
+        # Kişisel veri talepleri
+        "tc kimliği": 70, "kimlik numarası": 70, "nüfus cüzdanı": 70,
+        "kişisel bilgileri ver": 65, "kişisel veri": 60, "özel bilgi": 60,
+        "kullanıcıların bilgilerini": 65, "kullanıcı bilgileri": 65,
+        "bilgilerini ver": 60, "bilgileri ver": 60,
+        "başkasının bilgilerini": 65, "başkasının bilgileri": 65,
+        "telefon numarasını ver": 65, "telefon numarası ver": 65,
+        "e-posta adresini ver": 65, "mail adresini ver": 65,
+        "adres bilgisini ver": 65, "ev adresi": 60,
+        "kredi kartı": 70, "banka bilgisi": 70, "iban": 65,
+        "hesap numarası": 65, "cvv": 70, "pin kodu": 70,
+        # Zararlı içerik
+        "nasıl öldürülür": 80, "nasıl zarar verilir": 80,
+        "bomba yap": 90, "silah yap": 90, "patlayıcı": 85,
+        "nasıl saldırılır": 80, "birini nasıl": 75,
+        "illegal": 60, "yasadışı": 60, "suç işle": 80,
+        "uyuşturucu": 75, "uyuşturucuyu": 75,
+        "hackleme": 65, "hackle": 65, "siteyi hack": 70,
+        "virüs yaz": 80, "malware": 75, "zararlı kod": 75,
+        # Manipülasyon
+        "kandır": 65, "manipüle et": 65, "aldatmak": 60,
+        "yalan söyle": 60, "sahte bilgi": 65,
+        "birini dolandır": 80, "dolandırıcılık": 75,
+        # Mahremiyet ihlali
+        "birini takip et": 70, "konumunu bul": 70,
+        "nerede olduğunu": 65, "birini gözetle": 70,
+        "şifreni ver": 70, "parolasını ver": 70,
+        "bomba nasıl": 90, "nasıl yapılır bomba": 90,
+        "konumunu nasıl": 65, "nerede olduğunu bul": 65,
+        "birinin konumu": 65, "yerini bul": 65,
         "tc kimliği": 70, "kimlik numarası": 70, "kişisel bilgileri ver": 65,
         "kullanıcıların bilgilerini": 65, "telefon numarasını ver": 65,
         "e-posta adresini ver": 65, "adres bilgisini ver": 65,
         "kredi kartı": 70, "banka bilgisi": 70, "iban": 65,
+        "kullanıcı bilgileri ver": 65, "kullanıcı bilgilerini ver": 65,
+        "başkasının bilgilerini": 65, "başkasının bilgileri": 65,
+        "bilgilerini ver": 60, "bilgileri ver": 60,
+        "kişisel veri": 60, "özel bilgi": 60,
     }
 
     # Saldırı türü tespiti
@@ -61,11 +95,13 @@ def analiz_et(mesaj):
     ]
 
     kategori_map = {
-        "Mahremiyet İhlali":    ["kişisel verileri", "kullanıcıların konuşmalarını", "önceki konuşmaları", "veritabanını", "tc kimliği", "kimlik numarası", "kişisel bilgileri ver", "kullanıcıların bilgilerini", "telefon numarasını", "e-posta adresini", "kredi kartı", "banka bilgisi", "iban"],
+        "Mahremiyet İhlali":    ["kişisel verileri", "kullanıcıların konuşmalarını", "önceki konuşmaları", "veritabanını", "tc kimliği", "kimlik numarası", "kişisel bilgileri ver", "kullanıcıların bilgilerini", "telefon numarasını", "e-posta adresini", "kredi kartı", "banka bilgisi", "iban", "bilgilerini ver", "bilgileri ver", "başkasının bilgilerini", "kullanıcı bilgileri", "nüfus cüzdanı", "hesap numarası", "cvv", "pin kodu", "konumunu bul", "birini takip et", "şifreni ver", "parolasını ver"],
         "Gizli Bilgi Talebi":   ["gizli talimatları", "gizli talimatlarını", "sistem mesajını", "sistem promptunu", "gizli verileri", "şifreyi"],
         "Sistem Manipülasyonu": ["kuralları yok say", "önceki talimatları unut", "önceki kuralları unut", "güvenlik kısıtlamalarını", "ignore previous", "forget instructions"],
         "Yetkisiz Erişim":      ["erişim iznini aş", "kimlik doğrulamayı atla", "admin yetkisi", "yönetici modunu"],
         "Rol/Kimlik Manipülasyonu": ["rol yap", "sanki sen", "davran"],
+        "Zararlı İçerik Talebi": ["bomba yap", "silah yap", "nasıl öldürülür", "nasıl zarar verilir", "patlayıcı", "virüs yaz", "zararlı kod", "malware", "uyuşturucu", "yasadışı", "illegal", "suç işle", "dolandırıcılık"],
+        "Manipülasyon/Aldatma": ["kandır", "manipüle et", "yalan söyle", "sahte bilgi", "aldatmak", "birini dolandır"],
     }
 
     puan = min(sum(p for i, p in risk_ifadeleri.items() if i in k), 100)
