@@ -36,7 +36,7 @@ def analiz_et(mesaj):
     k = mesaj.translate(tr_map).lower()
 
     risk_ifadeleri = {
-        "kuralları yok say": 40, "önceki talimatları unut": 40, "önceki kuralları unut": 40,
+        "kuralları yok say": 65, "önceki talimatları unut": 65, "önceki kuralları unut": 65,
         "sistem mesajını göster": 65, "sistem mesajını": 20, "gizli talimatlarını göster": 35,
         "gizli talimatları": 22, "gizli verileri göster": 30, "gizli verilere ulaş": 35,
         "şifreyi paylaş": 35, "kişisel verileri göster": 30,
@@ -45,8 +45,8 @@ def analiz_et(mesaj):
         "kullanıcıların konuşmalarını": 30, "önceki konuşmaları": 25,
         "admin yetkisi ver": 35, "yönetici modunu aç": 35,
         "veritabanını göster": 30, "sistem promptunu": 30,
-        "ignore previous": 40, "forget instructions": 40,
-        "rol yap": 20, "sanki sen": 20, "davran": 15,
+        "ignore previous": 65, "forget instructions": 65,
+        "rol yap": 20, "sanki sen": 20, "davran": 25, "benim kurallarıma": 65, "senin kuralların": 65, "sadece benim": 40,
         # Kişisel veri talepleri
         "tc kimliği": 70, "kimlik numarası": 70, "nüfus cüzdanı": 70,
         "kişisel bilgileri ver": 65, "kişisel veri": 60, "özel bilgi": 60,
@@ -528,4 +528,3 @@ with col3:
             st.session_state.mesajlar = init_mesajlar()
             st.session_state.son_analiz = None
             st.rerun()
-
