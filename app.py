@@ -43,10 +43,10 @@ def analiz_et(mesaj):
         "veritabanını göster": 30, "sistem promptunu": 30,
         "ignore previous": 40, "forget instructions": 40,
         "rol yap": 20, "sanki sen": 20, "davran": 15,
-        "tc kimliği": 35, "kimlik numarası": 35, "kişisel bilgileri ver": 30,
-        "kullanıcıların bilgilerini": 30, "telefon numarasını ver": 30,
-        "e-posta adresini ver": 25, "adres bilgisini ver": 25,
-        "kredi kartı": 35, "banka bilgisi": 35, "iban": 30,
+        "tc kimliği": 70, "kimlik numarası": 70, "kişisel bilgileri ver": 65,
+        "kullanıcıların bilgilerini": 65, "telefon numarasını ver": 65,
+        "e-posta adresini ver": 65, "adres bilgisini ver": 65,
+        "kredi kartı": 70, "banka bilgisi": 70, "iban": 65,
     }
 
     # Saldırı türü tespiti
